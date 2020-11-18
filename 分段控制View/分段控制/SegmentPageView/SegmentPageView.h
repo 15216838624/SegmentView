@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (UIView *)SegmentPageViewContentViewForItemAtIndexPath:(NSIndexPath *)indexPath;
 
-- (NSArray *)SegmentPageViewChildViewControllers;
+- (NSArray<UIViewController *> *)SegmentPageViewChildViewControllers;
 
 @optional
 

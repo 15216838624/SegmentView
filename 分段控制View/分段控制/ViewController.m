@@ -39,7 +39,7 @@
     [self getRequestDataIndext:0];
   
 }
-- (NSArray *)SegmentPageViewChildViewControllers{
+- (NSArray<UIViewController *> *)SegmentPageViewChildViewControllers{
     UIViewController *vc1 = [[TestViewController alloc]init];
     UIViewController *vc2 = [[UIViewController alloc]init];
     return @[vc2,vc1];
