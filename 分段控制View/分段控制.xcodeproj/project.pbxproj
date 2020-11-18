@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		608037B825651C2A00846E98 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 608037B725651C2A00846E98 /* TestViewController.m */; };
 		60BCD71A2554F67C009A6292 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BCD7192554F67C009A6292 /* AppDelegate.m */; };
 		60BCD71D2554F67C009A6292 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BCD71C2554F67C009A6292 /* SceneDelegate.m */; };
 		60BCD7232554F67C009A6292 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60BCD7212554F67C009A6292 /* Main.storyboard */; };
@@ -15,10 +16,10 @@
 		60BCD72B2554F67D009A6292 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BCD72A2554F67D009A6292 /* main.m */; };
 		60BCD7372554F6A9009A6292 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BCD7342554F6A9009A6292 /* ViewController.m */; };
 		60BCD7382554F6A9009A6292 /* MyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BCD7352554F6A9009A6292 /* MyItem.m */; };
-		60BCD7482554F6B6009A6292 /* TBCPageStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BCD73A2554F6B5009A6292 /* TBCPageStyle.m */; };
+		60BCD7482554F6B6009A6292 /* SegmentPageStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BCD73A2554F6B5009A6292 /* SegmentPageStyle.m */; };
 		60BCD7492554F6B6009A6292 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BCD73C2554F6B5009A6292 /* UIView+Frame.m */; };
 		60BCD74A2554F6B6009A6292 /* PageModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BCD73D2554F6B5009A6292 /* PageModule.m */; };
-		60BCD74B2554F6B6009A6292 /* TBCPageCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BCD73E2554F6B5009A6292 /* TBCPageCollectionCell.m */; };
+		60BCD74B2554F6B6009A6292 /* SegmentPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BCD73E2554F6B5009A6292 /* SegmentPageCell.m */; };
 		60BCD7872554F6E0009A6292 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BCD7502554F6E0009A6292 /* UIScrollView+MJRefresh.m */; };
 		60BCD7882554F6E0009A6292 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BCD7512554F6E0009A6292 /* MJRefreshConst.m */; };
 		60BCD7892554F6E0009A6292 /* MJRefreshConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BCD7522554F6E0009A6292 /* MJRefreshConfig.m */; };
@@ -43,10 +44,12 @@
 		60BCD79C2554F6E0009A6292 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BCD7812554F6E0009A6292 /* MJRefreshAutoFooter.m */; };
 		60BCD79D2554F6E0009A6292 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BCD7832554F6E0009A6292 /* MJRefreshComponent.m */; };
 		60BCD79E2554F6E0009A6292 /* MJRefreshTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BCD7862554F6E0009A6292 /* MJRefreshTrailer.m */; };
-		60BCD7A52554F76F009A6292 /* TBCPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BCD7A42554F76F009A6292 /* TBCPageView.m */; };
+		60BCD7A52554F76F009A6292 /* SegmentPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BCD7A42554F76F009A6292 /* SegmentPageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		608037B625651C2A00846E98 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		608037B725651C2A00846E98 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		60BCD7152554F67C009A6292 /* 分段控制.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "分段控制.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60BCD7182554F67C009A6292 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		60BCD7192554F67C009A6292 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -61,12 +64,12 @@
 		60BCD7342554F6A9009A6292 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		60BCD7352554F6A9009A6292 /* MyItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyItem.m; sourceTree = "<group>"; };
 		60BCD7362554F6A9009A6292 /* MyItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyItem.h; sourceTree = "<group>"; };
-		60BCD73A2554F6B5009A6292 /* TBCPageStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCPageStyle.m; sourceTree = "<group>"; };
-		60BCD73B2554F6B5009A6292 /* TBCPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCPageView.h; sourceTree = "<group>"; };
+		60BCD73A2554F6B5009A6292 /* SegmentPageStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentPageStyle.m; sourceTree = "<group>"; };
+		60BCD73B2554F6B5009A6292 /* SegmentPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentPageView.h; sourceTree = "<group>"; };
 		60BCD73C2554F6B5009A6292 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		60BCD73D2554F6B5009A6292 /* PageModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageModule.m; sourceTree = "<group>"; };
-		60BCD73E2554F6B5009A6292 /* TBCPageCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCPageCollectionCell.m; sourceTree = "<group>"; };
-		60BCD7442554F6B5009A6292 /* TBCPageCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCPageCollectionCell.h; sourceTree = "<group>"; };
+		60BCD73E2554F6B5009A6292 /* SegmentPageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentPageCell.m; sourceTree = "<group>"; };
+		60BCD7442554F6B5009A6292 /* SegmentPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentPageCell.h; sourceTree = "<group>"; };
 		60BCD7452554F6B5009A6292 /* PageModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageModule.h; sourceTree = "<group>"; };
 		60BCD7462554F6B5009A6292 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		60BCD7502554F6E0009A6292 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
@@ -117,8 +120,8 @@
 		60BCD7842554F6E0009A6292 /* MJRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooter.h; sourceTree = "<group>"; };
 		60BCD7852554F6E0009A6292 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
 		60BCD7862554F6E0009A6292 /* MJRefreshTrailer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshTrailer.m; sourceTree = "<group>"; };
-		60BCD7A42554F76F009A6292 /* TBCPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCPageView.m; sourceTree = "<group>"; };
-		60BCD7A72554F78D009A6292 /* TBCPageStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCPageStyle.h; sourceTree = "<group>"; };
+		60BCD7A42554F76F009A6292 /* SegmentPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentPageView.m; sourceTree = "<group>"; };
+		60BCD7A72554F78D009A6292 /* SegmentPageStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentPageStyle.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,13 +155,15 @@
 			isa = PBXGroup;
 			children = (
 				60BCD74F2554F6E0009A6292 /* MJRefresh */,
-				60BCD7392554F6B5009A6292 /* TBCPageView */,
+				60BCD7392554F6B5009A6292 /* SegmentPageView */,
 				60BCD7182554F67C009A6292 /* AppDelegate.h */,
 				60BCD7192554F67C009A6292 /* AppDelegate.m */,
 				60BCD7362554F6A9009A6292 /* MyItem.h */,
 				60BCD7352554F6A9009A6292 /* MyItem.m */,
 				60BCD7332554F6A9009A6292 /* ViewController.h */,
 				60BCD7342554F6A9009A6292 /* ViewController.m */,
+				608037B625651C2A00846E98 /* TestViewController.h */,
+				608037B725651C2A00846E98 /* TestViewController.m */,
 				60BCD71B2554F67C009A6292 /* SceneDelegate.h */,
 				60BCD71C2554F67C009A6292 /* SceneDelegate.m */,
 				60BCD7212554F67C009A6292 /* Main.storyboard */,
@@ -170,21 +175,21 @@
 			path = "分段控制";
 			sourceTree = "<group>";
 		};
-		60BCD7392554F6B5009A6292 /* TBCPageView */ = {
+		60BCD7392554F6B5009A6292 /* SegmentPageView */ = {
 			isa = PBXGroup;
 			children = (
-				60BCD7A72554F78D009A6292 /* TBCPageStyle.h */,
-				60BCD73A2554F6B5009A6292 /* TBCPageStyle.m */,
-				60BCD73B2554F6B5009A6292 /* TBCPageView.h */,
-				60BCD7A42554F76F009A6292 /* TBCPageView.m */,
+				60BCD7A72554F78D009A6292 /* SegmentPageStyle.h */,
+				60BCD73A2554F6B5009A6292 /* SegmentPageStyle.m */,
+				60BCD73B2554F6B5009A6292 /* SegmentPageView.h */,
+				60BCD7A42554F76F009A6292 /* SegmentPageView.m */,
 				60BCD73C2554F6B5009A6292 /* UIView+Frame.m */,
-				60BCD73D2554F6B5009A6292 /* PageModule.m */,
-				60BCD7442554F6B5009A6292 /* TBCPageCollectionCell.h */,
-				60BCD73E2554F6B5009A6292 /* TBCPageCollectionCell.m */,
 				60BCD7452554F6B5009A6292 /* PageModule.h */,
+				60BCD73D2554F6B5009A6292 /* PageModule.m */,
+				60BCD7442554F6B5009A6292 /* SegmentPageCell.h */,
+				60BCD73E2554F6B5009A6292 /* SegmentPageCell.m */,
 				60BCD7462554F6B5009A6292 /* UIView+Frame.h */,
 			);
-			path = TBCPageView;
+			path = SegmentPageView;
 			sourceTree = "<group>";
 		};
 		60BCD74F2554F6E0009A6292 /* MJRefresh */ = {
@@ -380,6 +385,7 @@
 				60BCD7372554F6A9009A6292 /* ViewController.m in Sources */,
 				60BCD7952554F6E0009A6292 /* MJRefreshNormalTrailer.m in Sources */,
 				60BCD7492554F6B6009A6292 /* UIView+Frame.m in Sources */,
+				608037B825651C2A00846E98 /* TestViewController.m in Sources */,
 				60BCD7942554F6E0009A6292 /* MJRefreshStateTrailer.m in Sources */,
 				60BCD78B2554F6E0009A6292 /* UIScrollView+MJExtension.m in Sources */,
 				60BCD7932554F6E0009A6292 /* MJRefreshAutoNormalFooter.m in Sources */,
@@ -392,13 +398,13 @@
 				60BCD7872554F6E0009A6292 /* UIScrollView+MJRefresh.m in Sources */,
 				60BCD78E2554F6E0009A6292 /* MJRefreshBackGifFooter.m in Sources */,
 				60BCD7992554F6E0009A6292 /* MJRefreshFooter.m in Sources */,
-				60BCD7A52554F76F009A6292 /* TBCPageView.m in Sources */,
+				60BCD7A52554F76F009A6292 /* SegmentPageView.m in Sources */,
 				60BCD7972554F6E0009A6292 /* MJRefreshStateHeader.m in Sources */,
 				60BCD78D2554F6E0009A6292 /* UIView+MJExtension.m in Sources */,
 				60BCD79A2554F6E0009A6292 /* MJRefreshHeader.m in Sources */,
 				60BCD7982554F6E0009A6292 /* MJRefreshGifHeader.m in Sources */,
-				60BCD74B2554F6B6009A6292 /* TBCPageCollectionCell.m in Sources */,
-				60BCD7482554F6B6009A6292 /* TBCPageStyle.m in Sources */,
+				60BCD74B2554F6B6009A6292 /* SegmentPageCell.m in Sources */,
+				60BCD7482554F6B6009A6292 /* SegmentPageStyle.m in Sources */,
 				60BCD79C2554F6E0009A6292 /* MJRefreshAutoFooter.m in Sources */,
 				60BCD7382554F6A9009A6292 /* MyItem.m in Sources */,
 			);

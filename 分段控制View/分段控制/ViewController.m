@@ -7,15 +7,16 @@
 
 #import "ViewController.h"
 #import "MyItem.h"
-#import "TBCPageView.h"
+#import "SegmentPageView.h"
 #import <WebKit/WebKit.h>
-#import"TBCPageStyle.h"
-#import "TBCPageCollectionCell.h"
-@interface ViewController ()<TBCPageViewDelegate,WKNavigationDelegate,UITableViewDelegate,UITableViewDataSource>
+#import"SegmentPageStyle.h"
+#import "TestViewController.h"
+#import "SegmentPageCell.h"
+@interface ViewController ()<SegmentPageViewDelegate,WKNavigationDelegate,UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)NSMutableArray *array1;
 @property(nonatomic,strong)NSMutableArray *array2;
 @property(nonatomic,strong)NSMutableArray *array3;
-@property(nonatomic,strong)TBCPageView *pageView;
+@property(nonatomic,strong)SegmentPageView *pageView;
 @end
 
 @implementation ViewController
@@ -28,28 +29,36 @@
     self.array2 = [NSMutableArray array];
     self.array3 = [NSMutableArray array];
     CGFloat y =  0;
-    TBCPageStyle *pageStyle = [[TBCPageStyle alloc]init];
+    SegmentPageStyle *pageStyle = [[SegmentPageStyle alloc]init];
     pageStyle.titleViewScrollEnable = YES;
     pageStyle.scrollViewRightMargin = 0;
-    TBCPageView *pageView =[[TBCPageView alloc]initWithFrame:CGRectMake(0, y, 375, 667) tities:@[@"你好",@"我的",@"他的",@"你好",@"我的",@"他的",@"你好",@"我的",@"他的",@"你好",@"我的",@"他的"] pageStyle:pageStyle selectIndext:0];
+    SegmentPageView *pageView =[[SegmentPageView alloc]initWithFrame:CGRectMake(0, y, 375, 667) tities:@[@"你好",@"我的"] pageStyle:pageStyle selectIndext:0];
     pageView.delegate = self;
     self.pageView = pageView;
     [self.view addSubview:pageView];
     [self getRequestDataIndext:0];
   
 }
-- (UIView *)TBCPageViewContentViewForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
-    tableView.backgroundColor = [UIColor yellowColor];
-    tableView.estimatedRowHeight = 0;
-    tableView.estimatedSectionFooterHeight = 0;
-    tableView.estimatedSectionHeaderHeight =0;
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    tableView.tag = indexPath.item;
-    tableView.tableFooterView = [[UIView alloc]init];
-    return tableView;
+- (NSArray *)SegmentPageViewChildViewControllers{
+    UIViewController *vc1 = [[TestViewController alloc]init];
+    UIViewController *vc2 = [[UIViewController alloc]init];
+    return @[vc2,vc1];
 }
+
+
+
+//- (UIView *)SegmentPageViewContentViewForItemAtIndexPath:(NSIndexPath *)indexPath{
+//    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+//    tableView.backgroundColor = [UIColor yellowColor];
+//    tableView.estimatedRowHeight = 0;
+//    tableView.estimatedSectionFooterHeight = 0;
+//    tableView.estimatedSectionHeaderHeight =0;
+//    tableView.delegate = self;
+//    tableView.dataSource = self;
+//    tableView.tag = indexPath.item;
+//    tableView.tableFooterView = [[UIView alloc]init];
+//    return tableView;
+//}
 
 
 - (void)getRequestDataIndext:(NSInteger)indext{

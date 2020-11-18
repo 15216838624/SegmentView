@@ -1,19 +1,19 @@
 //
-//  TBCPageCollectionCell.m
+//  SegmentPageCollectionCell.m
 //  2222
 //
 //  Created by 韩李涛 on 2020/6/15.
 //  Copyright © 2020 hlt. All rights reserved.
 //
 
-#import "TBCPageCollectionCell.h"
+#import "SegmentPageCell.h"
 
-@interface TBCPageCollectionCell(){
+@interface SegmentPageCell(){
     BOOL prepareRused;
 }
 
 @end
-@implementation TBCPageCollectionCell
+@implementation SegmentPageCell
 
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];

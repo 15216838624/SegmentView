@@ -1,5 +1,5 @@
 //
-//  TBCPageStyle.h
+//  SegmentPageStyle.h
 //  分段控制器
 //
 //  Created by 韩李涛 on 2020/10/23.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TBCPageStyle : NSObject
+@interface SegmentPageStyle : NSObject
 @property(nonatomic,assign)CGFloat indicateViewHeight;
 @property(nonatomic,assign)CGFloat indicateViewWeight;
 @property(nonatomic,strong)UIColor *indicateViewColor;

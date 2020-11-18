@@ -1,13 +1,13 @@
 //
-//  TBCPageStyle.m
+//  SegmentPageStyle.m
 //  分段控制器
 //
 //  Created by 韩李涛 on 2020/10/23.
 //
 
-#import "TBCPageStyle.h"
+#import "SegmentPageStyle.h"
 
-@implementation TBCPageStyle
+@implementation SegmentPageStyle
 - (instancetype)init{
     if (self = [super init]) {
         self.titleHeight = 50;

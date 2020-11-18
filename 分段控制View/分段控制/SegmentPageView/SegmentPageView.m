@@ -1,34 +1,34 @@
 //
-//  TBCPageView.m
+//  SegmentPageView.m
 //  2222
 //
 //  Created by 韩李涛 on 2020/6/15.
 //  Copyright © 2020 hlt. All rights reserved.
 //
 
-#import "TBCPageView.h"
-#import "TBCPageStyle.h"
+#import "SegmentPageView.h"
+#import "SegmentPageStyle.h"
 #import "PageModule.h"
-#import "TBCPageCollectionCell.h"
+#import "SegmentPageCell.h"
 #import "UIView+Frame.h"
 #import "MJRefresh.h"
 #define ScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight  [UIScreen mainScreen].bounds.size.height
-@interface TBCPageView()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface SegmentPageView()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property(nonatomic,strong)UIScrollView *titleView;
 
 /** 标题下划线 */
 @property (nonatomic, weak) UIView *titleUnderline;
 /** 上一次点击的标题按钮 */
 @property (nonatomic, weak) UIButton *previousClickedTitleButton;
-@property(nonatomic,strong)TBCPageStyle *pagestyle;
+@property(nonatomic,strong)SegmentPageStyle *pagestyle;
 
 @property(nonatomic,strong)NSMutableArray *moduleArray;
 @end
-@implementation TBCPageView
+@implementation SegmentPageView
 static  NSString  *tableViewcellId = @"tableViewcellId";
 static  NSString  *viewcellId = @"viewcellId";
-- (instancetype)initWithFrame:(CGRect)frame tities:(NSArray *)titles pageStyle:(TBCPageStyle *)pagestyle selectIndext:(NSInteger)indext{
+- (instancetype)initWithFrame:(CGRect)frame tities:(NSArray *)titles pageStyle:(SegmentPageStyle *)pagestyle selectIndext:(NSInteger)indext{
     self = [super initWithFrame:frame];
     self.moduleArray = [NSMutableArray array];
     self.titleArray = titles;
@@ -85,7 +85,7 @@ static  NSString  *viewcellId = @"viewcellId";
             collectionView.prefetchingEnabled =NO;
         }
         _collectionView = collectionView;
-        [collectionView registerClass:[TBCPageCollectionCell class] forCellWithReuseIdentifier:tableViewcellId];
+        [collectionView registerClass:[SegmentPageCell class] forCellWithReuseIdentifier:tableViewcellId];
     }
     return self;
 }
@@ -94,7 +94,7 @@ static  NSString  *viewcellId = @"viewcellId";
 - (void)initTitleViewWithTitles:(NSArray <NSString *>*)titles selectedIndext:(NSInteger)indext{
     [self setTitleViewWithTitles:titles pageStyle:_pagestyle selectedIndext:indext];
 }
-- (void)setTitleViewWithTitles:(NSArray *)titles  pageStyle:(TBCPageStyle *)pagestyle selectedIndext:(NSInteger)indext{
+- (void)setTitleViewWithTitles:(NSArray *)titles  pageStyle:(SegmentPageStyle *)pagestyle selectedIndext:(NSInteger)indext{
     for (UIView *view in self.titleView.subviews) {
         [view removeFromSuperview];
     }
@@ -144,11 +144,25 @@ static  NSString  *viewcellId = @"viewcellId";
 }
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PageModule *module = self.moduleArray[indexPath.item];
-    UIView *view = [self.delegate  TBCPageViewContentViewForItemAtIndexPath:indexPath];
+    if ([self.delegate respondsToSelector:@selector(SegmentPageViewChildViewControllers)]) {
+        NSArray *childVcs = [self.delegate SegmentPageViewChildViewControllers];
+        SegmentPageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:tableViewcellId forIndexPath:indexPath];
+        for (UIView *view in cell.contentView.subviews) {
+            [view removeFromSuperview];
+        }
+        UIViewController *childVc =  childVcs[indexPath.item];
+        childVc.view.frame = cell.contentView.bounds;
+        [cell.contentView addSubview:childVc.view];
+        return cell;
+    }
+    if (![self.delegate respondsToSelector:@selector(SegmentPageViewContentViewForItemAtIndexPath:)]) {
+        NSLog(@"你必须实现SegmentPageViewContentViewForItemAtIndexPath:来返回内容视图");
+    }
+    
+    UIView *view = [self.delegate  SegmentPageViewContentViewForItemAtIndexPath:indexPath];
     view.tag =  indexPath.item;
     if ([view isKindOfClass:[UITableView class]]) {
-        TBCPageCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:tableViewcellId forIndexPath:indexPath];
-        //[view removeObserver:self forKeyPath:@"contentOffset"];
+        SegmentPageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:tableViewcellId forIndexPath:indexPath];
         for (UIView *view in cell.contentView.subviews) {
             [view removeFromSuperview];
             cell.tableView = nil;
@@ -165,7 +179,7 @@ static  NSString  *viewcellId = @"viewcellId";
         return cell;
     }else{
         
-        TBCPageCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:viewcellId forIndexPath:indexPath];
+        SegmentPageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:viewcellId forIndexPath:indexPath];
         [cell.contentView.subviews performSelector:@selector(removeFromSuperview)];
         [cell.contentView addSubview:view];
         return cell;
@@ -189,7 +203,7 @@ static  NSString  *viewcellId = @"viewcellId";
     NSInteger previousIndext = self.previousClickedTitleButton.tag;
     PageModule *module = self.moduleArray[previousIndext];
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:previousIndext inSection:0];
-    TBCPageCollectionCell *cell =(TBCPageCollectionCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    SegmentPageCell *cell =(SegmentPageCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     module.offsety = cell.tableView.contentOffset.y;
     // 重复点击了标题按钮
    if (self.previousClickedTitleButton == titleButton&&titleButton.tag>0)return;
@@ -254,8 +268,8 @@ static  NSString  *viewcellId = @"viewcellId";
     return view.tag;
 }
 
-- (TBCPageCollectionCell*)cellWithtableView:(UITableView *)tableView{
-    return (TBCPageCollectionCell*)tableView.superview.superview;
+- (SegmentPageCollectionCell*)cellWithtableView:(UITableView *)tableView{
+    return (SegmentPageCollectionCell*)tableView.superview.superview;
 }
 
 
