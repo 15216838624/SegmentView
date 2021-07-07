@@ -159,33 +159,21 @@ static  NSString  *viewcellId = @"viewcellId";
         NSLog(@"你必须实现SegmentPageViewContentViewForItemAtIndexPath:来返回内容视图");
     }
     
-    UIView *view = [self.delegate  SegmentPageViewContentViewForItemAtIndexPath:indexPath];
-    view.tag =  indexPath.item;
-    if ([view isKindOfClass:[UITableView class]]) {
-        SegmentPageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:tableViewcellId forIndexPath:indexPath];
-        for (UIView *view in cell.contentView.subviews) {
-            [view removeFromSuperview];
-            cell.tableView = nil;
-        }
-       
-        UITableView *tableView = (UITableView *)view;
-        [cell.contentView addSubview:tableView];
-        cell.tableView = tableView;
-        dispatch_async(dispatch_get_main_queue(), ^{
-             [tableView setContentOffset:CGPointMake(0, module.offsety) animated:NO];
-        });
-
-        [tableView reloadData];
-        return cell;
-    }else{
-        
-        SegmentPageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:viewcellId forIndexPath:indexPath];
-        [cell.contentView.subviews performSelector:@selector(removeFromSuperview)];
+    SegmentPageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:tableViewcellId forIndexPath:indexPath];
+    if (cell.tableView == nil) {
+        UITableView *view = (UITableView *)[self.delegate  SegmentPageViewContentViewForItemAtIndexPath:indexPath];
+        cell.tableView = view;
         [cell.contentView addSubview:view];
-        return cell;
-        
     }
     
+    dispatch_async(dispatch_get_main_queue(), ^{
+         [cell.tableView setContentOffset:CGPointMake(0, module.offsety) animated:NO];
+    });
+    cell.tableView.tag =  indexPath.item;
+    [cell.tableView reloadData];
+ 
+    return cell;
+
 }
 
 - (void)setTitleSeleteddindext:(NSInteger)indext{
@@ -263,10 +251,7 @@ static  NSString  *viewcellId = @"viewcellId";
     return self.titleArray.count;
 }
 
-- (NSInteger)getModuleIndextWithContentView:(UIView *)view{
-            
-    return view.tag;
-}
+
 
 - (SegmentPageCollectionCell*)cellWithtableView:(UITableView *)tableView{
     return (SegmentPageCollectionCell*)tableView.superview.superview;

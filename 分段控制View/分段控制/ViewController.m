@@ -28,7 +28,7 @@
     self.array1 = [NSMutableArray array];
     self.array2 = [NSMutableArray array];
     self.array3 = [NSMutableArray array];
-    CGFloat y =  0;
+    CGFloat y =  88;
     SegmentPageStyle *pageStyle = [[SegmentPageStyle alloc]init];
     pageStyle.titleViewScrollEnable = YES;
     pageStyle.scrollViewRightMargin = 0;
@@ -39,26 +39,26 @@
     [self getRequestDataIndext:0];
   
 }
-- (NSArray<UIViewController *> *)SegmentPageViewChildViewControllers{
-    UIViewController *vc1 = [[TestViewController alloc]init];
-    UIViewController *vc2 = [[UIViewController alloc]init];
-    return @[vc2,vc1];
-}
-
-
-
-//- (UIView *)SegmentPageViewContentViewForItemAtIndexPath:(NSIndexPath *)indexPath{
-//    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
-//    tableView.backgroundColor = [UIColor yellowColor];
-//    tableView.estimatedRowHeight = 0;
-//    tableView.estimatedSectionFooterHeight = 0;
-//    tableView.estimatedSectionHeaderHeight =0;
-//    tableView.delegate = self;
-//    tableView.dataSource = self;
-//    tableView.tag = indexPath.item;
-//    tableView.tableFooterView = [[UIView alloc]init];
-//    return tableView;
+//- (NSArray<UIViewController *> *)SegmentPageViewChildViewControllers{
+//    UIViewController *vc1 = [[TestViewController alloc]init];
+//    UIViewController *vc2 = [[UIViewController alloc]init];
+//    return @[vc2,vc1];
 //}
+
+
+
+- (UIView *)SegmentPageViewContentViewForItemAtIndexPath:(NSIndexPath *)indexPath{
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+    tableView.backgroundColor = [UIColor yellowColor];
+    tableView.estimatedRowHeight = 0;
+    tableView.estimatedSectionFooterHeight = 0;
+    tableView.estimatedSectionHeaderHeight =0;
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    tableView.tag = indexPath.item;
+    tableView.tableFooterView = [[UIView alloc]init];
+    return tableView;
+}
 
 
 - (void)getRequestDataIndext:(NSInteger)indext{
@@ -109,7 +109,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSInteger moduleIndext = [self.pageView getModuleIndextWithContentView:tableView];
+    NSInteger moduleIndext = tableView.tag;
     
     static NSString *cellName = @"CmsTableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName];
@@ -146,7 +146,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
   
-    NSInteger moduleIndext = [self.pageView getModuleIndextWithContentView:tableView];
+    NSInteger moduleIndext = tableView.tag;
     
     if (moduleIndext==0) {
         return self.array1.count;

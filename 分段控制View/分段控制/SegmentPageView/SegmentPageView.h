@@ -37,7 +37,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setTitleSeleteddindext:(NSInteger)indext;
 - (void)reloadData;
 
-- (NSInteger)getModuleIndextWithContentView:(UIView *)view;
 @end
 
 
